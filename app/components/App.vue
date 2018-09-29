@@ -13,7 +13,7 @@
             <TextField class="center" v-model="studentId" hint="Codigo estudiantil..." />
             <TextField secure="true" class="center" v-model="password" hint="Contraseña..." />
 
-            <Button text="Iniciar Sesión" @tap="login" />
+            <Button text="Iniciar Sesión" @tap="login()" />
           </FlexboxLayout>  
       </DockLayout>
     </Page>
@@ -41,9 +41,10 @@ export default {
           .then(
             result => {              
               const student = JSON.parse(JSON.stringify(result));
-              if (student.Id !== -1) {
-                alert('Bienvenido ' + student.NombreUsuario);
+              if (student.Id > 0) {
                 this.$navigateTo(Info);                
+                alert('Bienvenido ' + student.NombreUsuario);                
+                // this.$navigateTo(detailPage);                
               } else {
                 alert(student.NombreUsuario);
               }
@@ -74,6 +75,7 @@ Page {
 button {
   background-color: #343434;
   color: #fcfaf1;
+  height: 50;
 }
 
 .message {
@@ -85,5 +87,8 @@ button {
 
 .center {
   text-align: center;
+  height: 50;
+  margin: 1cm;
+  border-bottom: solid 1px #f0f0f0;
 }
 </style>

@@ -6,10 +6,10 @@
   "license": "MIT",
   "nativescript": {
     "id": "com.iqstudiogt.atchecker",
-    "tns-ios": {
+    "tns-android": {
       "version": "4.2.0"
     },
-    "tns-android": {
+    "tns-ios": {
       "version": "4.2.0"
     }
   },
